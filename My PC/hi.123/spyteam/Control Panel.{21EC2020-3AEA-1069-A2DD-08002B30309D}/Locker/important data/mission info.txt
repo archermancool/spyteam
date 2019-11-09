@@ -1,3 +1,0 @@
-go to seceret diary
-username: spyteam
-password spy
