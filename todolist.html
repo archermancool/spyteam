@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>missons</title>
+ <script>
+  function addItem() {
+   var newItem = document.createElement("div");
+   newItem.innerHTML = document.getElementById("box").value;
+   newItem.onclick = removeItem;
+   document.getElementById("list").appendChild(newItem);
+   saveList();
+  }
+  function removeItem() {
+   document.getElementById("list").removeChild(this);
+   saveList();
+  }
+  function saveList() {
+   localStorage.storedList = document.getElementById("list").innerHTML;
+  }
+  function loadList() {
+   document.getElementById("list").innerHTML = localStorage.storedList;
+   for(var i = 0; i < list.children.length; i++) {
+    list.children[i].onclick = removeItem;
+   }
+  }
+ </script>
+ <style>
+  .header {
+    height:75px; 
+    width: 350px; 
+    background-color:rgb(247, 15, 15); 
+    float: center; 
+    padding:10px; 
+    margin:20px;
+    text-align:centre; 
+    font-size:24px;
+  }
+  .app {
+    height:600px;
+    width: 350px; 
+    background-color:rgb(248, 4, 4); 
+    float: center; 
+    padding:10px; 
+    margin:20px;
+  }
+  input[type="button"] {
+   background-color: pink;
+  }
+ </style>
+</head>
+<body>
+ <div class="header">
+ 
+  <p> archers spy team </p>
+ </div>
+ <a href="website2.html">Click here to go back</a>
+</div>
+ <div class="app">
+  <p style="font-size:18px; font-style:bold;">missons</p>
+  <input type="text" id="box" value="Type here to add missons"/>
+  <br/>
+  <input type="button" value="Add item" onclick="addItem();"/>
+  <br/>
+   <div id="list"></div>
+ </div>
+ <script>
+  if(localStorage.storedList) {
+   loadList();
+  }
+ </script>
+</body>
+</html>
